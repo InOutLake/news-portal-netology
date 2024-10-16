@@ -8,7 +8,9 @@ export async function middleware(request: NextRequest) {
       throw new Error("Unauthorized");
     }
     const encryptedSessionData = cookies!.value;
-    const response = await fetch(new URL("/api/auth/authorize", request.url), {
+    //! Had to hardcode base url due to the way codesandbox handles requests
+    const url = new URL("/api/auth/authorize", "https://jgvlv2-3000.csb.app");
+    const response = await fetch(url.href, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ encryptedSessionData }),
@@ -24,11 +26,14 @@ export async function middleware(request: NextRequest) {
 
     return NextResponse.next();
   } catch (error: any) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    console.error("Error authorizing");
+    return NextResponse.redirect(
+      new URL("/login", "https://jgvlv2-3000.csb.app").href
+    );
   }
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/posts:path*"],
+  matcher: ["/posts", "/posts/:path*"],
 };

@@ -21,7 +21,7 @@
     "@types/bootstrap": "^5",
     "@types/crypto-js": "^4.2.2",
     "@types/joi": "^17.2.3",
-    "@types/js-cookie": "^3",
+    "@types/js-cookie": "^3.0.6",
     "@types/next": "^9.0.0",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",

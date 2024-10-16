@@ -18,7 +18,7 @@ export default async function handler(
 
     const encryptedSessionData = CryptoJS.AES.encrypt(
       JSON.stringify(sessionData),
-      process.env.ENCRYPTION_SECRET_KEY!
+      process.env.ENCRYPTION_SECRET_KEY_NEWS_APP!
     ).toString();
 
     res

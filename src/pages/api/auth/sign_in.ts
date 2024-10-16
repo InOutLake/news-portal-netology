@@ -19,7 +19,7 @@ export default function signIn(method: string, params: any) {
     const token = params.token;
     const decryptedToken = CryptoJS.AES.decrypt(
       token,
-      process.env.ENCRYPTION_SECRET_KEY!
+      process.env.ENCRYPTION_SECRET_KEY_NEWS_APP!
     ).toString(CryptoJS.enc.Utf8);
     const { currentUser: user } = JSON.parse(decryptedToken);
     return user;

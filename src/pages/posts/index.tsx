@@ -1,9 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useRouter } from 'next/router';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useRouter } from "next/router";
 
 import Post from "../../data/types/post";
 import mockPosts from "../../data/mock/posts";
-import React from 'react';
+import React from "react";
 
 export default function Posts() {
   const [loading, setLoading] = React.useState(true);
@@ -38,7 +38,14 @@ export default function Posts() {
                   <h5 className="card-title">{post.title}</h5>
                   <p className="card-subtitle text-muted">{`${post.date}`}</p>
                   <p className="card-text">{post.content}</p>
-                  <a className="btn btn-primary" onClick={() => router.push(`/posts/${post.id}`)}>Подробнее</a>
+                  <div className="mt-auto">
+                    <a
+                      className="btn btn-primary"
+                      onClick={() => router.push(`/posts/${post.id}`)}
+                    >
+                      Подробнее
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -47,5 +54,4 @@ export default function Posts() {
       )}
     </div>
   );
-
 }
